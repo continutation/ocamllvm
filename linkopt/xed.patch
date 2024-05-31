@@ -1,0 +1,32 @@
+diff --git a/examples/xed-examples-util.c b/examples/xed-examples-util.c
+index 44dfa53..5ecbe71 100644
+--- a/examples/xed-examples-util.c
++++ b/examples/xed-examples-util.c
+@@ -17,7 +17,8 @@ Copyright (c) 2018 Intel Corporation
+ END_LEGAL */
+ 
+ #include "xed/xed-interface.h"
+-#include "xed/xed-get-time.h"
++//#include "xed/xed-get-time.h"
++#define xed_get_time() (0ULL)
+ #include "xed-examples-util.h"
+ #include <string.h> //strlen, memcmp, memset
+ #include <stddef.h> //ptrdiff_t
+@@ -417,7 +418,7 @@ void xed_print_encode_stats(xed_disas_info_t* di)
+ }
+ 
+ 
+-
++#if 0
+ void
+ xed_map_region(const char* path,
+                void** start,
+@@ -502,7 +503,7 @@ xed_map_region(const char* path,
+     if (CLIENT_VERBOSE1)
+         printf("Mapped " XED_FMT_U " bytes!\n", *length);
+ }
+-
++#endif
+ 
+ ////////////////////////////////////////////////////////////////////////////
+ 

@@ -1,0 +1,9 @@
+[submodule "linkopt/mbuild"]
+	path = linkopt/mbuild
+	url = https://github.com/intelxed/mbuild.git
+[submodule "linkopt/xed"]
+	path = linkopt/xed
+	url = https://github.com/intelxed/xed.git
+[submodule "linkopt/pdclib"]
+	path = linkopt/pdclib
+	url = https://github.com/DevSolar/pdclib.git

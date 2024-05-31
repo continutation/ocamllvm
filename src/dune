@@ -1,0 +1,10 @@
+(executable
+ (name ocamllvm)
+ (libraries num llvm llvm.bitreader llvm.analysis ocamlgraph)
+ (preprocess (pps ppx_blob))
+ (preprocessor_deps runtime.ml BigInt.ml)
+)
+
+(env
+ (dev
+  (flags (:standard -w -23 -warn-error -27))))
