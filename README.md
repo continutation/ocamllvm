@@ -1,3 +1,5 @@
+# ocamllvm
+
 This project is a transpiler that converts LLVM bitcode into OCaml source code. While the practical applications of this transpilation may be limited, it offers an exploration into the interoperability between low-level and high-level programming languages.
 
 The primary motivation behind this project was to investigate the feasibility of utilising js_of_ocaml, a compiler from OCaml to JavaScript, on a project with a significant dependency on a C library. By transpiling the C library to OCaml and modifying the project to utilise the generated OCaml code, the project can be transformed into a pure OCaml project, thereby enabling the use of js_of_ocaml.
