@@ -24,6 +24,7 @@ let string_of_valuekind : ValueKind.t -> string = function
   | GlobalVariable -> "GlobalVariable"
   | UndefValue -> "UndefValue"
   | Instruction _ -> "Instruction"
+  | _ -> "Unknown ValueKind"
 
 let string_of_typekind : TypeKind.t -> string = function
   | Void -> "Void"
@@ -43,6 +44,7 @@ let string_of_typekind : TypeKind.t -> string = function
   | Metadata -> "Metadata"
   | X86_mmx -> "X86_mmx"
   | Token -> "Token"
+  | _ -> "Unknown TypeKind"
 
 let is_aggregate_type llty = match classify_type llty with
   | Struct | Array | Vector -> true
