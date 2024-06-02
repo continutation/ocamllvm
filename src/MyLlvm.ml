@@ -59,12 +59,13 @@ let aggregate_length llty = match classify_type llty with
 (* Iterate over the non-aggregate contained types of llty. *)
 let rec fold_flat_subtypes ~f ~init llty =
   match classify_type llty with
-  | Struct -> Array.fold_left (fun acc ty -> fold_flat_subtypes ~f ~init:acc ty) init (struct_element_types llty)
+  | Struct -> struct_element_types llty |> Array.fold_left (fold_flat_subtypes ~f ~init) init
   | Array | Vector ->
     let ty = element_type llty in
+    let len = aggregate_length llty in
     let acc = ref init in
-    for _ = 1 to aggregate_length llty do
-      acc := f (!acc) ty
+    for _ = 1 to len do
+      acc := f !acc ty
     done;
     !acc
   | _ -> f init llty
@@ -136,3 +137,4 @@ let string_of_opcode : Opcode.t -> string = function
   | CatchPad -> "CatchPad"
   | CleanupPad -> "CleanupPad"
   | CatchSwitch -> "CatchSwitch"
+  | _ -> "Unknown Opcode"
